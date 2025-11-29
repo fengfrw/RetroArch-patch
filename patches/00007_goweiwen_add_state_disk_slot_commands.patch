@@ -165,13 +165,13 @@ index ad3ac3e12eb..416f98062f6 100644
  
  static const struct cmd_map map[] = {
 diff --git a/runloop.c b/runloop.c
-index 846fbabcd3a..bd8bc2adecf 100644
+index a4bc004f26..669737e7ab 100644
 --- a/runloop.c
 +++ b/runloop.c
-@@ -7195,6 +7195,18 @@ void runloop_task_msg_queue_push(
+@@ -7361,6 +7361,17 @@ void runloop_task_msg_queue_push(
+       runloop_msg_queue_push(msg, prio, duration, flush, NULL, MESSAGE_QUEUE_ICON_DEFAULT, MESSAGE_QUEUE_CATEGORY_INFO);
  }
- 
- 
+
 +uint32_t runloop_get_current_savestate()
 +{
 +   settings_t *settings        = config_get_ptr();
@@ -183,10 +183,9 @@ index 846fbabcd3a..bd8bc2adecf 100644
 +   settings_t *settings        = config_get_ptr();
 +   settings->ints.state_slot = state_slot;
 +}
-+
+
  bool runloop_get_current_savestate_path(char *path, size_t len)
  {
-    settings_t *settings        = config_get_ptr();
 diff --git a/runloop.h b/runloop.h
 index 3ba255f7ba9..b0f2d5f567b 100644
 --- a/runloop.h
